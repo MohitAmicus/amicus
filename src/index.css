@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 250 60% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 250 60% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 60% 20%;
+
+    --primary: 250 60% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 250 60% 45%;
+
+    --secondary: 190 100% 45%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 190 100% 40%;
+
+    --muted: 250 20% 95%;
+    --muted-foreground: 250 20% 50%;
+
+    --accent: 120 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 250 15% 88%;
+    --input: 250 15% 88%;
+    --ring: 250 60% 50%;
+
+    --radius: 0.75rem;
+
+    --hero-gradient-start: 250 60% 50%;
+    --hero-gradient-end: 190 100% 45%;
+    
+    --pattern-color: 120 60% 50%;
+    
+    --shadow-elegant: 0 10px 40px -10px hsl(250 60% 50% / 0.3);
+    --shadow-glow: 0 0 40px hsl(190 100% 45% / 0.4);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 250 50% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 250 45% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 250 45% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 190 100% 45%;
+    --primary-foreground: 250 60% 20%;
+    --primary-hover: 190 100% 40%;
+
+    --secondary: 250 60% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-hover: 250 60% 45%;
+
+    --muted: 250 40% 20%;
+    --muted-foreground: 250 20% 65%;
+
+    --accent: 120 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 250 40% 25%;
+    --input: 250 40% 25%;
+    --ring: 190 100% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+  }
+  
+  .btn-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .btn-glow::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 -translate-x-full transition-all duration-500;
+  }
+  
+  .btn-glow:hover::before {
+    @apply opacity-30 translate-x-full;
+  }
+}
